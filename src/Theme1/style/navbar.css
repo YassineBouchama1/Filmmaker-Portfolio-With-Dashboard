@@ -1,0 +1,365 @@
+nav {
+    display: flex;
+    /* gap: 30px; */
+    justify-content: space-between;
+    /* position: static !important; */
+    z-index: 100;
+
+    width: 100%;
+    height: 100px;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    text-align: start;
+z-index: 999999;
+    /* position: fixed;  */
+  
+
+
+}
+
+nav a {
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    color: white;
+    text-decoration: none;
+
+
+}
+
+nav a:hover {
+
+    color: #34e3c9;
+}
+
+.links-mobile {
+
+    justify-content: space-around;
+    gap: 40px;
+    display: flex;
+
+
+}
+
+nav img {
+    vertical-align: middle;
+    width: 60%;
+}
+
+nav>* {
+    z-index: 100;
+
+}
+
+.socail-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.125);
+    padding: 6px 10px;
+    border-radius: 25px;
+
+}
+
+.socail-icons a i {
+    cursor: pointer;
+    background-color: transparent;
+    transform: scale(1.6);
+
+    border-radius: 5px;
+    transition-duration: .3s;
+}
+
+
+.socail-icons .fa-facebook:hover {
+    margin-bottom: 10px;
+    color: #3b5998;
+}
+
+.socail-icons .fa-instagram:hover {
+    margin-bottom: 10px;
+    color: #bc2a8d;
+}
+
+.Logo {
+
+    transition-duration: .4s;
+}
+
+.Logo:hover {
+    margin-bottom: 10px;
+    color: #3b5998;
+}
+
+.hamburger-menu {
+
+    display: none;
+
+}
+
+.links {
+    display: flex;
+}
+
+.blure-navbar {
+    display: none;
+}
+
+.Logo-sidebar {
+    display: none;
+}
+
+.Logo-sidebar img {
+    width: 90%;
+
+}
+
+.contact-mobile {
+    display: none;
+
+}
+
+@media (max-width:991px) {
+
+    .socail-icons-mobile {
+        display: flex;
+
+        column-gap: 20px;
+        justify-content: center;
+    }
+
+    .socail-icons-mobile i {
+        transform: scale(2);
+
+    }
+
+    .contact-mobile .fa-facebook:hover {
+
+        color: #3b5998;
+    }
+
+    .contact-mobile .fa-instagram:hover {
+
+        color: #bc2a8d;
+    }
+
+    .contact-mobile-active {
+
+        display: block;
+        flex-direction: column;
+        z-index: 9000;
+        gap: 5px;
+
+
+    }
+
+    .Logo-sidebar-active {
+        display: flex;
+        position: fixed;
+        z-index: 4000;
+        top: 10%;
+        left: 35%;
+
+    }
+
+    .blure-navbar {
+        display: block;
+    }
+
+    .links {
+        transform: translate(1%, 0) scaleY(1);
+        left: -150%;
+        transition: all 0.5s;
+
+        height: 100vh;
+        width: 100%;
+        transition: all 0.5s;
+        justify-content: center;
+        gap: 30px;
+        top: 0;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        position: fixed;
+
+    }
+
+    .links-mobile {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        padding-bottom: 90px;
+        padding-right: 40px;
+        transition: all 0.5s;
+    }
+
+    .links a {
+        transition: all 0.5s;
+
+        font-size: 14px;
+        text-align: start !important;
+    }
+
+    .socail-icons a i {
+
+        transform: scale(1.2);
+        transition: all 0.5s;
+
+    }
+
+    .socail-icons {
+        transition: all 0.5s;
+        background-color: none;
+
+    }
+
+    /* .showMobile::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        background-color: black;
+        right:20%;
+        height: 100vh;
+        width: 100vw;
+     
+        transition: all 0.5s;
+    } */
+    .offcanvas-mobile {
+        content: "";
+        top: 0;
+        opacity: .7;
+        background-color: #0a0b0f;
+        left: 0%;
+        z-index: 1;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        transition: all 0.5s;
+    }
+
+    header {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        transition: all 0.5s;
+        /* position: fixed; */
+    }
+
+    nav img {
+        vertical-align: middle;
+        width: 50%;
+    }
+
+    .showMobile {
+        background-color: #0a0b0f;
+        opacity: .8;
+        height: 100vh;
+        width: 70vw;
+
+        top: 0;
+        transform: translate(-1%, 0) scaleY(1);
+        left: 0%;
+        transition: all 0.5s;
+
+
+
+    }
+
+    .nav-mobile {
+        /* background-color: transparent; */
+        transition: all 0.5s;
+    }
+
+    .hamburger-menu {
+        margin: 0.7rem 0.7rem;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        height: 2.2rem;
+
+        -moz-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 0.7);
+        cursor: pointer;
+    }
+
+    .nav-mobile-active {
+        background-color: #0a0b0f;
+        height: 70px;
+        width: 100%;
+
+        opacity: .9;
+    }
+
+    .main-ig-fb-active {
+        opacity: 0.0;
+
+    }
+
+    nav {
+        justify-content: space-around;
+        transition: all 0.5s;
+    }
+}
+
+/* .hamburger-menu:hover .bar-top{
+    width: 1.9rem;
+}
+.hamburger-menu:hover .bar-middle{
+    width: 1.9rem;
+}
+.hamburger-menu:hover .bar-bottom{
+    width: 1.5rem;
+} */
+.bar-top,
+.bar-middle,
+.bar-bottom {
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    margin: 3px 0;
+
+    transform-origin: left;
+    transition: all 0.5s;
+    width: 1.9rem;
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.bar-top {
+    width: 1.9rem;
+}
+
+.bar-middle {
+    width: 1.9rem;
+
+}
+
+
+
+
+.bar-top.active {
+    transform: rotate(50deg);
+    width: 1.9rem;
+}
+
+.bar-middle.active {
+    transform: translateX(1rem);
+
+    opacity: 0;
+}
+
+.bar-bottom.active {
+    transform: rotate(-50deg);
+    width: 1.9rem;
+}

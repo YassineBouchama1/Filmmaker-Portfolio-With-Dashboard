@@ -1,0 +1,157 @@
+.instagram{
+    padding-top: 75px; margin-top: 75px;
+
+ 
+    height: 100%;
+}
+.instagram .card {
+/* padding: 30px; */
+
+
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    background: rgba(10, 11, 15, 0.9);
+
+  }
+
+
+.instagram .card-body{
+    display: flex;  
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    text-align: center;
+    max-width: 100%;
+}
+
+
+.img-ig{
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    /* column-count: 4; */
+    position: relative;
+}
+.img-ig img{
+    max-width: 25%;
+    height: auto;
+    opacity: .7;
+
+}
+.btn-ig{
+    color: #1d222c;
+    background-color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    display: flex;
+  gap: 20px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 20;
+    font-weight: 300;
+line-height: 1.75;
+padding: 0.6rem 1rem;
+font-size: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+    
+}
+.btn-ig:hover{
+    margin-bottom: 10px;
+}
+
+.btn-ig:hover{
+    color: black;
+
+}
+.btn-ig:hover  i{
+    color: #E1306C;
+    transform: scale(1.2);
+}
+.btn-ig i{
+    transition: all 0.2s ease-in-out; 
+}
+
+@media (max-width:991px) {
+
+.img-ig{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+   
+
+    position: none;
+}
+.img-ig img{
+    max-width: 100%;
+    height: auto;
+    
+}
+.btn-ig{
+
+    width: 150px;
+    height: 50px;
+    display: flex;
+  gap: 20px;
+   color: black;
+align-items: center;
+justify-content: center;
+    position: absolute;
+    z-index: 20;
+    font-weight: 300;
+line-height: 1.75;
+margin-top: 36px;
+font-size: 1.2rem;
+  
+  
+    
+}
+}
+
+@media (max-width:480px) {
+    .img-ig{
+        display: grid;
+        grid-template-columns: repeat(1 ,1fr);
+        justify-content: center;
+ 
+        align-content: center;
+    
+        position: none;
+    }
+    .img-ig img{
+        max-width: 100%;
+        height: auto;
+  
+    }
+    .btn-ig{
+    
+        width: 150px;
+        height: 50px;
+        display: flex;
+      gap: 20px;
+       color: black;
+    align-items: center;
+    justify-content: center;
+        position: absolute;
+        z-index: 20;
+        font-weight: 300;
+    line-height: 1.75;
+    margin-top: 56px;
+    font-size: 1.2rem;
+      
+      
+        
+    }
+}

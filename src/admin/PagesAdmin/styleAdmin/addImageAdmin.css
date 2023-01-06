@@ -1,0 +1,252 @@
+
+.hideinputImg {
+    display: none;
+}
+
+
+
+
+.AddImageAdmin-Main .imgColAdmin {
+  
+    justify-items:center;
+    max-width: 100%;
+  
+    display: grid;
+    /* grid-template-columns: repeat(2, minmax(500px, 1fr)); */
+ 
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+
+    align-items: center;
+    padding: 10px;
+    gap: 30px;
+}
+
+.AddImageAdmin-Main .uploadImg {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    padding: 20px 0;
+
+}
+
+.status-of-uploading h3 {
+    color: green !important;
+}
+
+.AddImageAdmin-Main .imgColAdmin img {
+    width: auto;
+    max-height: 300px;
+    /* border-radius: 10px; */
+}
+
+.btnimg {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+
+    height: 40px;
+    align-items: center;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.AddImageAdmin-Main .colAddInfo {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    gap: 20px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 300px;
+    padding: 20px 0;
+}
+/* part List Images */
+.col2-items {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    /* grid-template-columns: repeat(2, minmax(500px, 1fr)); */
+    grid-template-rows: repeat(auto-fill, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    align-items: center;
+  
+   
+    /* background-color: #D9D9D9; */
+
+    gap: 10px;
+    align-items: center;
+
+   padding: 10px;
+}
+
+ .List-items{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.css-input {
+
+    padding: 9px;
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #ffffff;
+    background-color: #F4F7FD;
+    color: #959595;
+    border-style: solid;
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+
+    text-align: center;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.43) inset;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.43) inset;
+    -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.43) inset;
+}
+
+.css-input:focus {
+    outline: none;
+}
+
+  .list-categoryAdmin {
+    cursor: pointer;
+    height: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    color: black;
+
+    padding: 20px 10px;
+text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+ .list-categoryAdmin h6{
+
+    padding: 10px;
+    border-radius: 10px;
+}
+ .list-categoryAdmin h6:hover{
+    background-color: #f6f6f6;
+
+}
+ .count-items{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+
+    max-width: 100%;
+}
+.category h3 {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.category h3:hover {
+    color: #16A5E1;
+}
+
+/* .category a .active{
+    color: #67B1D1;
+    } */
+.imgList {
+
+    width: 100%;
+    background-color: white;
+    order: 4;
+    border-radius: 25px;
+    border: 2px white solid;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.drop-custom {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-weight: 900;
+
+    text-align: center;
+}
+
+option {
+    font-family: monospace;
+    font-weight: 900;
+}
+
+
+
+
+
+
+@media (max-width:991px) {
+    .AddImageAdmin-Main .imgColAdmin {
+ 
+        justify-items:center;
+        max-width: 100%;
+      
+        display: grid;
+        /* grid-template-columns: repeat(2, minmax(500px, 1fr)); */
+     
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    
+        align-items: center;
+      
+        gap: 30px;
+    }
+    .css-input {
+
+      
+        max-width: 200px;
+    
+    }
+    .AddImageAdmin-Main .uploadImg {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        align-items: center;
+        padding: 20px 0;
+    
+    }
+    .AddImageAdmin-Main .colAddInfo {
+        display: flex;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        gap: 20px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 300px;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:480px) {
+
+
+}

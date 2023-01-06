@@ -1,0 +1,22 @@
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: none;
+  /* height: 1000px; */
+  /* background: rgba(10, 11, 15, 0.9); */
+}
+
+*{
+  text-decoration: none !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+
+p{
+
+  font-family: "DM Sans", sans-serif;
+opacity: .7;
+font-weight: 400;
+}

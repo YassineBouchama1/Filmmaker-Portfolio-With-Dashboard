@@ -1,0 +1,16 @@
+.login-admin{
+  
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: white;
+}
+
+.login-admin h1{
+
+    color: white;
+
+}
+

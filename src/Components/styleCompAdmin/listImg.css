@@ -1,0 +1,95 @@
+.header-list{
+    
+    height: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    color: black;
+
+    padding: 10px 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+}
+.list-admin{
+    height: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    display: grid;
+    color: black;
+
+    padding: 20px 10px;
+
+    justify-content: center;
+    align-items: center;
+ 
+    border-radius: 10px;
+
+}
+
+.item-list{
+    height: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    color: black;
+
+    padding: 20px 10px;
+ 
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+}
+.item-list{
+    text-align: center;
+}
+
+.lin-list{
+    height: 2px;
+background-color: black;
+opacity: .6;
+width: 100%;
+}
+
+.dont-break-out {
+font-size: 10px;
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+  
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  
+  }
+
+  .remove-admin-btn{
+    cursor: pointer;
+ 
+  
+}
+.remove-admin-btn:hover{
+    background-color: #f6f6f6;
+    opacity: .6;
+}
+
+.img-vid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fa-trash{
+    color: red;
+}
