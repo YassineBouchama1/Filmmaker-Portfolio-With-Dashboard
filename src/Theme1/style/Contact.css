@@ -1,0 +1,386 @@
+
+.contact{
+    padding: 50px;
+}
+
+.contact-col1{
+    column-gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    height: 100%;
+}
+.contact-subcol2 .form{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    row-gap: 20px;
+}
+.contact-subcol2 .form input{
+    border-radius: 8px;
+  background: transparent;
+  
+    font-family: "Inter Regular", Inter, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    height: 50px;
+    font-style: normal;
+font-weight: 500;
+    color: white;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid white;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+}
+.contact-subcol2 .form input:focus{
+    border: 1px solid white;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+ 
+}
+.contact-subcol2 .form textarea:focus{
+    border: 1px solid white;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+     
+   }
+   .contact-subcol2 .form textarea{
+    outline: none;
+    border-radius: 8px;
+    font-weight: 500;
+    padding-left: 10px;
+    background-color: transparent;
+       border: 1px solid white;
+       border-top-width: 0px;
+       border-right-width: 0px;
+       border-bottom-width: 1px;
+       border-left-width: 0px;
+       height: 130px;
+       color: white;
+       font-family: "Inter Regular", Inter, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+   }
+
+   .submit-btn{
+    height: 50px !important;
+    background-color: rgb(255, 255, 255) !important;
+    width:50%;
+ color: rgb(0, 0, 0)  !important;
+ font-family: "DM Sans", sans-serif;
+ font-weight: 600;
+ align-self: center;
+   }
+.contact-subcol1 {
+    display: flex;
+    flex-basis: 45%;
+    row-gap: 40px;
+
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.contact-subcol2{
+    flex-basis: 55%;
+    background: rgba(10, 11, 15, 0.2);
+}
+
+/* //text on left */
+.contact-subcol1 .text2{
+    display: flex;
+    row-gap: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.text1 p{
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+color: white;
+font-size: 26px;
+letter-spacing: -1.5px;
+text-transform: none;
+text-decoration: none;
+line-height: 1.3em;
+text-align: start;
+width: 90%;
+}
+
+.text1 h1{
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+color: white;
+font-size: 40px;
+letter-spacing: -2px;
+text-transform: none;
+text-decoration: none;
+line-height: 1.3em;
+text-align: start;
+
+}
+
+.text2  .text2-1 :nth-child(2){
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+color: white;
+font-size: 22px;
+letter-spacing: -1.5px;
+text-transform: none;
+text-decoration: none;
+line-height: 100%;
+text-align: start;
+
+}
+
+.text2  .text2-2 :nth-child(2){
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+color: white;
+font-size: 22px;
+letter-spacing: -1.5px;
+text-transform: none;
+text-decoration: none;
+line-height: 70%;
+text-align: start;
+
+}
+
+.text2  .text2-1 :nth-child(1){
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+color: white;
+font-size: 14px;
+letter-spacing: -1px;
+text-transform: none;
+text-decoration: none;
+line-height: 70%;
+text-align: start;
+
+}
+
+.text2  .text2-2 :nth-child(1){
+    font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+color: white;
+font-size: 11px;
+letter-spacing: -1px;
+text-transform: none;
+text-decoration: none;
+line-height: 70%;
+text-align: start;
+
+}
+.text1{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: min-content;
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0px;
+
+}
+.text2 .text2-1.p{
+
+   
+}
+
+
+
+
+/* /// icons contact */
+
+
+.icons-contact{
+    display: flex;
+
+    width: 60%;
+  align-items: center;
+
+    justify-content:space-around;
+ 
+}
+.icons-contact i{
+cursor: pointer;
+    transform: scale(2);
+    color: var(--font-color);
+transition: all .5s linear;
+}
+.icons-contact i:hover{
+
+        transform: scale(2.2);
+        color: var(--main-color);
+    
+    }
+
+
+
+    /* ///col2 */
+
+
+    
+
+.contact-col2{
+margin: 0 10px;
+    padding: 100px 0
+    }
+    
+
+
+    @media (max-width:1200px) {
+        .contact-col2{
+            margin: 0 30px;
+          
+                }
+                
+        .contact-col1 {
+            gap: 40px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: start;
+            height: 100%;
+            flex-direction: column;
+        }
+        .contact-subcol2{
+            flex-basis: 100%;
+
+        width: 100%;
+        height: 100%;
+        }
+        .contact-subcol1{
+            flex-basis: 100%;
+         
+        }
+            /* title */
+    .all-works h1{
+
+    
+        font-size: clamp(0px, 22vw, 200px);
+   
+    }
+    .contact .col-1-contact {
+   
+        position: relative;
+    overflow: visible;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(6, minmax(50px, 1fr));
+    grid-auto-rows: min-content;
+    grid-template-rows: repeat(2, min-content);
+    width: 100%;
+    height: min-content;
+    flex: 0 0 auto;
+    gap: 20px;
+  
+    padding: 0;
+
+    }
+    .contact .contact-sub-col1 {    
+   
+        grid-column: auto / span 3;
+  
+        }
+        .contact .contact-sub-col2 {    
+     
+            grid-column: auto / span 3;
+  
+        }
+        .contact .contact-sub-col3 {    
+     
+            grid-column: auto / span 6;
+  
+        }
+    }
+
+    @media (max-width:991px) {
+        .all-works h1{
+
+    
+            font-size: clamp(0px, 22vw, 150px);
+       
+        }
+
+ 
+
+    }
+    @media (max-width:809px) {
+        .all-works h1{
+
+    
+            font-size: clamp(0px, 22vw, 100px);
+       
+        }
+        .contact .col-1-contact {
+   
+            position: relative;
+        overflow: visible;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(6, minmax(50px, 1fr));
+        grid-auto-rows: min-content;
+        grid-template-rows: repeat(3, min-content);
+        width: 100%;
+        height: min-content;
+        flex: 0 0 auto;
+        gap: 20px;
+        padding: 0px; 
+    
+        }
+        .contact .contact-sub-col1 {    
+         
+            grid-column: auto / span 6;
+      
+            }
+            .contact .contact-sub-col2 {    
+         
+                grid-column: auto / span 6;
+      
+            }
+            .contact .contact-sub-col3 {    
+         
+                grid-column: auto / span 6;
+      
+            }
+        
+    }
+
+    .errorMSG{
+        color: tomato;
+        font-size: 10px;
+    }
+    .msgSent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .msgSent h3{
+        font-size: 15px;
+        color: green;
+    }
+
+    .social-links-contact{
+        color: white;
+        text-decoration: none;
+    }
+    
+    .social-links-contact:hover{
+        color: white;
+        text-decoration: none;
+    }

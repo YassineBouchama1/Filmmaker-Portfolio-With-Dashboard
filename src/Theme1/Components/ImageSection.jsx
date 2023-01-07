@@ -101,7 +101,7 @@ export default function ImageSection() {
 
                   >
                   
-                    <img loading='lazy'
+                    <img 
                       style={{ maxWidth: '100%' }}
                       className="video2"
 

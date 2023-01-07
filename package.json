@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -23,6 +24,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.2",
     "firebase": "^9.13.0",
+    "framer-motion": "^8.2.4",
     "lightgallery": "^2.7.0",
     "react": "^18.2.0",
     "react-animation-on-scroll": "^5.1.0",

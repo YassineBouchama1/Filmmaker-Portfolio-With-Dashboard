@@ -9,6 +9,7 @@ import Services from '../Components/Services'
 import ImageSection from '../Components/ImageSection'
 import Instgram from '../Components/Instgram'
 import Footer from '../Components/Footer'
+import Contact from '../Components/Contact'
 const Lazyig  =React.lazy(()=>import ('../Components/Instgram'))
 const LazyServices  =React.lazy(()=>import ('../Components/Services'))
 // const Lazyig  =React.lazy(()=>import ('../Components/Instgram'))
@@ -41,6 +42,7 @@ export default function Home() {
  <ImageSection/>
 <LazyServices/>
 <About/>
+<Contact/>
 <Lazyig/>
 <Footer/>
 
