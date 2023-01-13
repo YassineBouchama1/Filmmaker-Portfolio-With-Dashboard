@@ -21,10 +21,10 @@ import './App.css'
 import 'animate.css';
 import login from './admin/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
+const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
 // const LazyAddImageAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddImageAdmin'));
 // const LazyAddVideoAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddVideoAdmin'));
-const LazyDashboard  =React.lazy(()=>import ('./admin/PagesAdmin/Dashboard'));
+// const LazyDashboard  =React.lazy(()=>import ('./admin/PagesAdmin/Dashboard'));
 
 
 
@@ -68,16 +68,16 @@ function App() {
 
 <Routes>
 <Route path='/' element={<Home2/>} />
-<Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyDashboard/>} />
+<Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyLogin/>} />
 
 
 
 
-<Route path='/admin' element={isAuth ? <AddImageAdmin/>: <LazyDashboard/>} />
+<Route path='/admin' element={isAuth ? <AddImageAdmin/>: <LazyLogin/>} />
 
-<Route path='/image' element={isAuth ? <AddImageAdmin/>: <LazyDashboard/>} />
-<Route path='/video' element={isAuth ? <AddVideoAdmin/>: <LazyDashboard/>} />
-<Route path='/Dashboard' element={isAuth ? <Dashboard/>: <LazyDashboard/>} />
+<Route path='/image' element={isAuth ? <AddImageAdmin/>: <LazyLogin/>} />
+<Route path='/video' element={isAuth ? <AddVideoAdmin/>: <LazyLogin/>} />
+<Route path='/Dashboard' element={isAuth ? <Dashboard/>: <LazyLogin/>} />
 
 <Route path="*" element={<PageNotFound/>} />
 
