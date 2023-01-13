@@ -10,41 +10,28 @@ import ImageSection from '../Components/ImageSection'
 import Instgram from '../Components/Instgram'
 import Footer from '../Components/Footer'
 import Contact from '../Components/Contact'
+import EditSec from '../Components/EditSec'
 const Lazyig  =React.lazy(()=>import ('../Components/Instgram'))
-const LazyServices  =React.lazy(()=>import ('../Components/Services'))
-// const Lazyig  =React.lazy(()=>import ('../Components/Instgram'))
-// const Lazyig  =React.lazy(()=>import ('../Components/Instgram'))
+const LazyServices  =React.lazy(()=>import ('../Components/Services'));
+const LazyFooter   =React.lazy(()=>import ('../Components/Footer'))
+
 export default function Home() {
 
-    //  const myStyle={
-    //             backgroundImage: `url(${background})` ,
-    //             height:'100vh',
-    //         
-    //            
-    //             backgroundSize: 'cover',
-    //             backgroundRepeat: 'no-repeat',
 
-    //     position: "fixed",
-    //     top: "0",
-    //     left: "0",
-    
-     
-    //     background: "#0a0b0f"
-    //         };
 
   return (
 
     <div className='homeContainer'  >
 
     <Welcom/>
-
+<EditSec/>
  <VideosSection/>
  <ImageSection/>
 <LazyServices/>
 <About/>
 <Contact/>
 <Lazyig/>
-<Footer/>
+<LazyFooter/>
 
     </div>
    

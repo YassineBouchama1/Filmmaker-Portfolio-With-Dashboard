@@ -1,0 +1,128 @@
+.editor{
+    padding-top: 75px; margin-top: 75px;
+    height: auto;
+    margin-bottom: 205px;
+   
+}
+.editor .card {
+padding: 30px;
+
+border-radius: 15px !important;
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    background: rgba(10, 11, 15, 0.9);
+
+  }
+ .editor .card-body{
+
+    position: relative;
+    height: auto !important;
+display: flex;
+align-items: center;
+gap: 50px;
+flex-direction: column;
+  }
+  .editor-text{
+
+    display: flex;
+    flex-direction: column;
+  }
+  .comapreimage{
+    flex-basis: 100%;
+  }
+
+  
+  @media (max-width:991px) {
+
+    .editor-text{
+        flex-basis: 50%;
+      }
+    .editor .card-body{
+
+    gap: 20px;
+      }
+
+    .editor .card-body {
+  
+      
+      
+          display: flex;
+          flex-direction: column;
+     
+
+      
+        }
+        .img-editor{
+          flex-basis: 100%;
+          width: 100%;
+          max-width: 100%;
+          height: auto !important;
+      }
+
+
+        .editor .card-body p{
+          width: 100%;
+        }
+
+        .editor .card-body {
+          display: flex;
+          gap: 30px;
+          padding: 0px;
+      }
+}
+
+@media (max-width:480px) {
+    .editor-text{
+        flex-basis: 50%;
+      }
+    .editor .card-body{
+
+    gap: 20px;
+      }
+  .editor .card-body p{
+    width: 100%;
+    font-size: 12px;
+  }
+  .editor .card-body {
+    display: flex;
+    gap: 15px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+  .editor img {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+}
+.editor  .text-body{
+    flex-basis:100%;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .card-body .text-body .blureText {
+    font-weight: 100;
+    opacity: .7;
+    font-size: 13px;
+}
+.card-body  h2 {
+  color: white;
+  font-size: 18px;
+}
+.card-body  h5, h3, p, h4,li {
+  color: white;
+  font-size: 12px;
+}
+
+
+}

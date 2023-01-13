@@ -6,7 +6,7 @@
 .about .card {
 padding: 30px;
 
-
+border-radius: 15px !important;
     display: flex;
     flex-direction: row;
     min-width: 0;

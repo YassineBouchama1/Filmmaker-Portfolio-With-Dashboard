@@ -109,7 +109,8 @@ useEffect(() => {
 // </div>
 // <img className='bg-main' preload="yes" loading='lazy' src={bg[currentState]} ></img>
   return (
-<div className='bg-main'   ></div>
+
+ <img className='bg-main' preload="yes"  src={bg[currentState]} ></img>
 
 
   )

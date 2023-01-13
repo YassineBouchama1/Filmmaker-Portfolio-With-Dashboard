@@ -14,7 +14,7 @@ max-width: 100%;
 .images .card-image {
 padding: 30px;
 
-
+border-radius: 15px !important;
     display: flex;
     flex-direction: row;
     min-width: 0;

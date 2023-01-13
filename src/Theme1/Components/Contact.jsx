@@ -38,7 +38,7 @@ export default function Contact() {
      
     }
     else {
-      emailjs.sendForm('service_cry34d6', 'template_25c3ca3', e.target, 'flvvKfUS30GH5ytEc')
+      emailjs.sendForm('service_kpa0266', 'template_8l6dwld', e.target, 'B-K9drG3fFKCAdNB5')
         .then((result) => {
           console.log(result.text),
           setIsMsgSent(true)

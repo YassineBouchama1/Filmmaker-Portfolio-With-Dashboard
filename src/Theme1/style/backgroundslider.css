@@ -37,9 +37,9 @@ width: 100%;
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat; */
-    animation: chnageImage 25s linear infinite;
+    /* animation: chnageImage 25s linear infinite; */
     }
- @keyframes chnageImage {
+ /* @keyframes chnageImage {
     0% {
         background-image: url("../images/bg/1.jpg");
 
@@ -65,10 +65,10 @@ width: 100%;
 
     } 
         
-    }  
+    }   */
 
 
- @media (max-width:800px) {
+ /* @media (max-width:800px) {
     .bg-main{
 
      -webkit-transition:  all 1s;;
@@ -114,4 +114,4 @@ width: 100%;
              
          } 
      
-    }  
+    }   */

@@ -19,7 +19,11 @@ import { BrowserRouter, Routes, Route ,Link} from "react-router-dom"
 import './App.css'
 import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const LazyLogin  =React.lazy(()=>import ('./Admin/Login'))
+const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
+const LazyAddImageAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddImageAdmin'));
+const LazyAddVideoAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddVideoAdmin'));
+const LazyDashboard  =React.lazy(()=>import ('./admin/PagesAdmin/Dashboard'));
+
 
 
 function App() {
@@ -63,7 +67,7 @@ function App() {
 <Routes>
 
 <Route path='/' element={<Home2/>} />
-<Route path='/login' element={isAuth ? <AddImageAdmin /> : <LazyLogin/>} />
+<Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyLogin/>} />
 
 
 
