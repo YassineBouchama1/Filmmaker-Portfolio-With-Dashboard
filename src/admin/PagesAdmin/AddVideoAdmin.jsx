@@ -4,7 +4,7 @@ import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
 import SideBar from '../SideBar'
 import NavBar from '../../NavBar'
 
-import { Link } from 'react-router-dom';
+
 import AddVideoComponents from '../AddVideoComponents'
 
 export default function VidAdmin() {

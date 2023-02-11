@@ -1,6 +1,5 @@
 import React,{ useState,useEffect } from 'react'
 
-import Home2 from './Home2'
 
 import ScrollToTop from "react-scroll-to-top";
 
@@ -24,7 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Photo from './Theme1/Pages/Photo';
 import Videos from './Theme1/Pages/Videos';
 
-import Services from './Theme1/Pages/Services';
+
 import ContactPage from './Theme1/Pages/Contact';
 import Home from './Theme1/Pages/Home';
 const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
@@ -77,7 +76,7 @@ function App() {
 <Route path='/Photos' element={<Photo/>} />
 <Route path='/Videos' element={<Videos/>} />
 <Route path='/Contact' element={<ContactPage/>} />
-<Route path='/Services' element={<Services/>} />
+
 
 <Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyLogin/>} />
 
