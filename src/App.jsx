@@ -21,6 +21,12 @@ import './App.css'
 import 'animate.css';
 import login from './admin/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Photo from './Theme1/Pages/Photo';
+import Videos from './Theme1/Pages/Videos';
+
+import Services from './Theme1/Pages/Services';
+import ContactPage from './Theme1/Pages/Contact';
+import Home from './Theme1/Pages/Home';
 const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
 // const LazyAddImageAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddImageAdmin'));
 // const LazyAddVideoAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddVideoAdmin'));
@@ -67,7 +73,12 @@ function App() {
 
 
 <Routes>
-<Route path='/' element={<Home2/>} />
+<Route path='/' element={<Home/>} />
+<Route path='/Photos' element={<Photo/>} />
+<Route path='/Videos' element={<Videos/>} />
+<Route path='/Contact' element={<ContactPage/>} />
+<Route path='/Services' element={<Services/>} />
+
 <Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyLogin/>} />
 
 

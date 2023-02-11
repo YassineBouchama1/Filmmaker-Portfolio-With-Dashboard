@@ -3,7 +3,7 @@ import '../style/image.css'
 import { filterByCatMainImg } from '../../hook/useFiltercategory'
 import Gellery from '../utily/Gellery'
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { getAllMovies, uploadImgRedux, createImgRedux } from '../../Redux/Actions/action'
+import { getAllMovies } from '../../Redux/Actions/action'
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -23,6 +23,7 @@ import { NavLink } from "react-router-dom";
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import BtnCategory from './BtnCategory'
+
 export default function ImageSection() {
 
 
@@ -38,20 +39,21 @@ export default function ImageSection() {
     dispatchNovies(getAllMovies())
 
   }, [update])
-  const dataPostss = useSelector(state => state.DataR.movies)
 
 
+  const PhotosFromFireBaseRedux = useSelector(state => state.DataR.movies)
+  
   useEffect(() => {
-    const newAr = dataPostss.filter((item) => item.categoryImg === "Portraits")
-    setImages(newAr)
+    // const newAr = 
+    setImages(PhotosFromFireBaseRedux.filter((item) => item.Category === "Portraits"))
    
 
-  }, [dataPostss])
+  }, [PhotosFromFireBaseRedux])
 
-
+console.log(PhotosFromFireBaseRedux)
   const filterByCat = (cat) => {
-
-    filterByCatMainImg(cat, setImages, dataPostss)
+console.log(images)
+    filterByCatMainImg(cat, setImages, PhotosFromFireBaseRedux)
 
   }
 
@@ -65,6 +67,7 @@ export default function ImageSection() {
 
  
     }
+    
   const toggleModal = (index) => {
 
 
@@ -84,19 +87,19 @@ export default function ImageSection() {
    
            
          
-            {dataPostss.length >=1?(  <LightGallery
+            {PhotosFromFireBaseRedux.length >=1?(  <LightGallery
            
               elementClassNames="gallery22"
-              plugins={[lgZoom, lgVideo, lgThumbnail]}
+              plugins={[lgZoom, lgThumbnail]}
               mode="lg-fade" >
             
-             {images.map((i,index) => {
+             {images.map((i) => {
              
                 return (
                 
                   <a
                     className="gallery-item"
-                    data-src={i.img}
+                    data-src={i.image[0]}
                     key={i.id}
 
                   >
@@ -106,7 +109,7 @@ export default function ImageSection() {
                       className="video2"
 
                       alt=""
-                      src={i.img}
+                      src={i.image[0]}
                     />
              
 

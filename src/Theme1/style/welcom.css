@@ -7,7 +7,7 @@
 .seactin-welcom{
   width: 100%;
   padding-top: 81px;
-  margin-top: -81px;
+  margin-top: -200px;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -78,9 +78,15 @@ transform: translateY(-10px);
 
 } */
 
+.btn-welecom{
+display: flex;
+gap: 50px;
+}
 
+.btn-welecom button{
 
-
+  min-width: 150px;
+}
 
 @media (max-width:991px) {
   .seactin-welcom h1{

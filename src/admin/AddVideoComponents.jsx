@@ -3,12 +3,15 @@ import "./PagesAdmin/styleAdmin/addvideoAdmin.css"
 import SideBar from "./SideBar"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth, db, storage } from "../firebase/firebase-config"
 
 import NavBar from '../NavBar'
 import avatar from '../images/avatar.png'
 import { getAllVids,createVidRedux,uploadThumbRedux } from '../Redux/Actions/videoAction'
 import {filterByCatMainVid} from '../hook/useFiltercategory'
 import NoData from '../Components/NoData'
+import { collection, addDoc, arrayUnion, updateDoc, doc, setDoc, Timestamp, getDocs ,serverTimestamp } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import notify from '../hook/useNotifcation'
 import { useSelector, useDispatch } from 'react-redux'
@@ -22,12 +25,11 @@ export default function AddVideoComponents() {
 
    const [vidUrl, setVidUrl] = useState("");
    const [isPress, setIsPress] = useState(false)
-
+   const [images, setImages] = useState([])
    const dispatchNovies = useDispatch();
    const [videos, setVideos] = useState([])
    const [update, setUpdate] = useState(false)
    const [error, setError] = useState(false)
-
    const [errorImg, setErrorImg] = useState(false)
   const [imgUpload, setImgUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState(avatar);
@@ -42,81 +44,77 @@ export default function AddVideoComponents() {
    }, [update])
  
 
-   const dataVideos = useSelector(state => state.Video.VidsUrls)
+   const VideoFromFireBaseRedux = useSelector(state => state.Video.VidsUrls)
  
-   useEffect(() => {
-    setVideos(dataVideos)
-     console.log(dataVideos)
-   }, [dataVideos])
- 
-
-
-
- 
-  //upload img to firebase using redux
-  const uploadImg = () => {
-    if (imgUpload == null) {
-      setErrorImg(true)
-
-    }
-    else {
-      setLoading(true)
-      setIsPress(true)
-      dispatchNovies(uploadThumbRedux(imgUpload, setImageUrls, setLoading,imageUrls))
-    
-      setUpload(true)
-    }
-
-  }
-
-
+  //  useEffect(() => {
+  //   setVideos(dataVideos)
+  //    console.log(dataVideos)
+  //  }, [dataVideos])
  
 
 
-  //upload all blog to firebase
-  const onCreate = async () => {
+
+
+
+  //-=-------  //  //upload all blog to firebase------------ //
+  const onUpload = async (e) => {
+    e.preventDefault();
+
+    if (categoryVid.length == 0 || images == null || categoryVid == '' ) return setError(true);
+  
+    e.preventDefault();
+
+    const data = await getDocs(collection(db, "Videos"));
+    const id = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).length + 1
+    const docRef = await addDoc(collection(db, 'Videos'), {
+      id: id,
+      Category: categoryVid,
+      UrlVideo: vidUrl,
+      date: serverTimestamp(),
+    })
+
+    await Promise.all(
+      setLoading(true),
+      setIsPress(true),
+      images?.map((image) => {
+
+        //update colication and add image to it {map if theres many images}
+        const imgeref = ref(storage, `Videos/${image.name}`);
+        uploadBytes(imgeref, image).then(async () => {
+          const downUrl = await getDownloadURL(imgeref)
+          await updateDoc(docRef, {
+            image: arrayUnion(downUrl)
+          })
+        }
+
+        )
+
+      }),    setError(false),setImages([]),
+      notify(),
+      setUpdate(!update),
+  
+      setCategoryVid(""),
+      setIsPress(false),
+      setLoading(true),
+
+    )
+
+
+
+
+  };
  
-    if (categoryVid.length == 0 || vidUrl.length == 0 ) {
-      setError(true)
-
-  }
-
-   else{
-      setError(false)
-     
-    setLoading(true)
-    setIsPress(true)
-    dispatchNovies(createVidRedux(categoryVid,vidUrl,imageUrls,setLoading))
-    setCategoryVid("")
-    setVidUrl("")
-    notify()
-
-    setImageUrls(avatar)
- 
 
 
-    setUpdate(!update)
-    setLoading(false)
-
-    }
-  }
 
 
-  //when image change save it 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
 
-      setImageUrls(URL.createObjectURL(event.target.files[0]))
-      setImgUpload(event.target.files[0])
-      setErrorImg(true);
-    }
-  }
 
-    //fitlter by category
-    const filterByCatVid = (cat) => {
+    // //fitlter by category
+    // const filterByCatVid = (cat) => {
 
-      filterByCatMainVid(cat,setVideos,dataVideos)
-    }
+    //   filterByCatMainVid(cat,setVideos,dataVideos)
+    // }
   
   
 
@@ -143,7 +141,7 @@ export default function AddVideoComponents() {
               </div>
         <label htmlFor="upload-photo">
         <img
-          src={imageUrls}
+        src={avatar}
           alt="fzx"
           height="100px"
           width="120px"
@@ -153,17 +151,15 @@ export default function AddVideoComponents() {
       <input className='hideinputImg'
         type="file"
         name="photo"
-        onChange={onImageChange}
+        onChange={(e) => setImages(Object.values(e.target.files))}
 
         id="upload-photo"
       />
-      {errorImg && imgUpload == null ?
+      {error && images == null ?
         <label className='error animate__animated animate__shakeX'>add image Empty</label> : ""}
-      {error && upload == false ?
-        <label className='error animate__animated animate__shakeX'>upload image</label> : ""}
+  
+        {images?.map((i) => <img src={URL.createObjectURL(i)}></img>)}
 
-
-      <div onClick={uploadImg} className='btnimg'><span>1-</span>Upload Image </div>
 
   
         
@@ -191,7 +187,7 @@ export default function AddVideoComponents() {
 
      {error && categoryVid.length <= 0 ?
       <label className='error animate__animated animate__shakeX'>Category can't be Empty</label> : ""}
-        <div onClick={()=>onCreate()} className='btnimg'>Add Item </div></div> 
+        <div onClick={(e)=>onUpload(e)} className='btnimg'>Add Item </div></div> 
       </div>
 
 </div>
@@ -203,12 +199,12 @@ export default function AddVideoComponents() {
       
 
 
-      <div className='count-items'> Latest Videos: { videos.length}</div>
+      <div className='count-items'> Latest Videos: { VideoFromFireBaseRedux.length}</div>
 
 
        <div className='List-items'>
           
-<ListVid videos={videos} setUpdate={setUpdate} update={update}/>
+<ListVid data={VideoFromFireBaseRedux} videos={videos} setUpdate={setUpdate} update={update}/>
 
 </div>
 

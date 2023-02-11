@@ -10,12 +10,12 @@ import ImageSection from '../Components/ImageSection'
 import Instgram from '../Components/Instgram'
 import Footer from '../Components/Footer'
 import Contact from '../Components/Contact'
-
-import Lazyig from '../Components/../Components/Instgram'
-import LazyServices from '../Components/Services'
-import LazyFooter from '../Components/Footer'
 import MainNavBar from '../Components/MainNavBar'
-export default function Home() {
+
+
+import LazyFooter from '../Components/Footer'
+
+export default function Photo() {
 
 
 
@@ -23,16 +23,17 @@ export default function Home() {
     <div className='container'>
     <div className='homeContainer'  >
     <MainNavBar/>
-    <Welcom/>
 
-    <About/>
-<LazyServices/>
 
-<Contact/>
-<Lazyig/>
+
+ <ImageSection/>
+
+
+
 <LazyFooter/>
 
     </div>
     </div>
+   
   )
 }

@@ -31,6 +31,24 @@ nav a {
 
 
 }
+/* .MuiTypography-colorPrimary {
+    color: #fff !important;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    color: white;
+    text-decoration: none;
+cursor: pointer;
+}
+
+.MuiTypography-colorPrimary:hover {
+
+    color: #34e3c9 !important;
+} */
+
+
 
 nav a:hover {
 

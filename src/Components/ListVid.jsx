@@ -4,7 +4,7 @@ import { collection, addDoc ,deleteDoc,doc,getDocs} from "firebase/firestore";
 import { auth, db, storage } from "../firebase/firebase-config"
 
 import notify from '../hook/useNotifcation'
-export default function ListVid({ videos, update, setUpdate }) {
+export default function ListVid({ videos, update, setUpdate ,data}) {
 
     //Delet Video
     const deletVid  = async(id)=>{
@@ -25,14 +25,14 @@ export default function ListVid({ videos, update, setUpdate }) {
     <h5>Options</h5>
     </div>
 
-{videos.map((i)=>{
+{data.map((i)=>{
     return(
 <>
 <div key={i.id} className='item-list'>
-<div className='img-vid'> <img src={i.thumb} style={{width:'70px' ,height:'auto'}}></img>
-<span className='dont-break-out'>{i.urlVid}</span>
+<div className='img-vid'> <img src={i.image} style={{width:'70px' ,height:'auto'}}></img>
+<span className='dont-break-out'>{i.UrlVideo}</span>
 </div>
-<h6>{i.categoryVid}</h6>
+<h6>{i.Category}</h6>
 
 
 <div onClick={()=>deletVid(i.id)} className='remove-admin-btn'><i  class="fa-solid fa-trash"></i> Remove</div>

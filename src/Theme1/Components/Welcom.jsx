@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../style/welcom.css'
 
 export default function Welcom() {
@@ -14,7 +15,10 @@ export default function Welcom() {
     
   <section className='seactin-welcom ' id='Home'>  
 
-  <div className="mouse1"></div>
+  <div className="btn-welecom">
+  <Link to='/Videos'>Filmmaking</Link>
+  <Link  to='/Services'>Photos</Link>
+  </div>
 <div className='handwrite'> <p className='animate__animated animate__zoomIn'>Noaman El garrab</p></div>
  
 

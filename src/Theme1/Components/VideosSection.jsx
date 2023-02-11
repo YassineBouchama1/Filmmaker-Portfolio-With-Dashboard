@@ -22,7 +22,7 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 
 export default function VideosSection() {
   const category = [{ cat: "Editorial" }, { cat: "Commercial" }, { cat: "Automobile" }, { cat: "Personal" }]
-  const [videos, setVideos] = useState([])
+  const [videos, setVideos] = useState()
   const [update, setUpdate] = useState(false)
   const dispatchNovies = useDispatch();
 
@@ -35,11 +35,11 @@ export default function VideosSection() {
 
   }, [update])
   const dataVideos = useSelector(state => state.Video.VidsUrls)
-
+  const VideoFromFireBaseRedux = useSelector(state => state.Video.VidsUrls)
 
   useEffect(() => {
     
-    const newAr = dataVideos.filter((item) => item.categoryVid === 'Editorial')
+    const newAr = dataVideos.filter((item) => item.Category === 'Editorial')
     setVideos(newAr)
   }, [dataVideos])
 
@@ -75,21 +75,21 @@ export default function VideosSection() {
 
 
         
- {dataVideos.length >=1?(  <LightGallery
+ {dataVideos?.length >=1?(  <LightGallery
 
   elementClassNames="gallery22"
-  plugins={[ lgVideo]}
+  plugins={[ lgVideo ,lgThumbnail]}
   mode="lg-fade" >
   
  
  
  
-  {videos.map((i) => {
+  {videos?.map((i) => {
  
     return (
       <a
         className="gallery-item  animate__animated animate__fadeInUp"
-        data-src={i.urlVid}
+        data-src={i.UrlVideo}
         key={i.id}
  
       >
@@ -100,7 +100,7 @@ export default function VideosSection() {
           className="video2"
  
           alt=""
-          src={i.thumb}
+          src={i.image[0]}
         />
  
  

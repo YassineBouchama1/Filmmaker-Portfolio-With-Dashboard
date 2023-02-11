@@ -4,11 +4,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import notify from '../hook/useNotifcation'
 import { filterByCatMainImg } from '../hook/useFiltercategory'
 import 'react-toastify/dist/ReactToastify.css';
+import { auth, db, storage } from "../firebase/firebase-config"
 import avatar from '../images/avatar.png'
-
-import { getAllMovies, uploadImgRedux, createImgRedux } from '../Redux/Actions/action'
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, arrayUnion, updateDoc, doc, setDoc, Timestamp, getDocs ,serverTimestamp } from "firebase/firestore";
+import { getAllMovies } from '../Redux/Actions/action'
 import { useSelector, useDispatch } from 'react-redux'
-
 
 
 
@@ -17,6 +18,7 @@ import ListImg from '../Components/ListImg'
 
 export default function AddImageComponents() {
 
+  const PhotosFromFireBaseRedux = useSelector(state => state.DataR.movies)
   const category = [{ cat: "Portraits" }, { cat: "Product" }, { cat: "Automobile" }, { cat: "Street" }, { cat: "Events" }]
  
 
@@ -25,19 +27,19 @@ export default function AddImageComponents() {
 
 
   const [loading, setLoading] = useState(false);
+  const [errorImg, setErrorImg] = useState(false);
   const [categoryImg, setCategoryImg] = useState("");
-  const [imgUpload, setImgUpload] = useState(null);
-  const [imageUrls, setImageUrls] = useState(avatar);
-  const [images, setImages] = useState([])
+  
+  // const [images, setImages] = useState([])
   const [isPress, setIsPress] = useState(false)
   const dispatchNovies = useDispatch();
-  const dispatch2 = useDispatch();
+
 
   const [update, setUpdate] = useState(false)
   const [error, setError] = useState(false)
-  const [errorImg, setErrorImg] = useState(false)
-  const [upload, setUpload] = useState(false)
 
+
+  const [images, setImages] = useState([])
 
 
   //get data from fireStore using redux
@@ -48,13 +50,6 @@ export default function AddImageComponents() {
   }, [update])
 
 
-  const dataPostss = useSelector(state => state.DataR.movies)
-
-
-  useEffect(() => {
-    setImages(dataPostss)
-    console.log(dataPostss)
-  }, [dataPostss])
 
 
 
@@ -63,74 +58,64 @@ export default function AddImageComponents() {
 
 
 
-  //upload img to firebase using redux
-  const uploadImg = () => {
-    if (imgUpload == null) {
-      setErrorImg(true)
+  //-=-------  //upload all blog to firebase------------- //
+  const onUpload = async (e) => {
+    e.preventDefault();
 
-    }
-    else {
-      setLoading(true)
-      setIsPress(true)
-      dispatchNovies(uploadImgRedux(imgUpload, setImageUrls, setLoading))
+    if (categoryImg.length == 0 || images == null || categoryImg == '' ) return setError(true);
+  
+    e.preventDefault();
 
-      setUpload(true)
-      setTimeout(setLoading(false), 1000);
-    }
+    const data = await getDocs(collection(db, "Images"));
+    const id = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).length + 1
+    const docRef = await addDoc(collection(db, 'Images'), {
+      id: id,
+      Category: categoryImg,
 
-  }
+      date: serverTimestamp(),
+    })
+
+    await Promise.all(
+      setLoading(true),
+      setIsPress(true),
+      images?.map((image) => {
+
+        //update colication and add image to it {map if theres many images}
+        const imgeref = ref(storage, `Images/${image.name}`);
+        uploadBytes(imgeref, image).then(async () => {
+          const downUrl = await getDownloadURL(imgeref)
+          await updateDoc(docRef, {
+            image: arrayUnion(downUrl)
+          })
+        }
+
+        )
+
+      }),    setError(false),setImages([]),
+      notify(),
+      setUpdate(!update),
+  
+      setCategoryImg(""),
+      setIsPress(false),
+      setLoading(true),
+
+    )
 
 
 
-  //upload all blog to firebase
-  const onCreate = async () => {
 
-    if (categoryImg.length == 0 || imgUpload == null || upload == false ||imageUrls == avatar) {
-      setError(true)
-
-    }
-
-
-    else {
-      setError(false);
-
-      dispatch2(createImgRedux(imageUrls, categoryImg, setLoading, setCategoryImg, setLoading))
-      notify()
-      setUpdate(!update)
-      // setImgUpload(null)
-      setImageUrls(avatar)
-      setCategoryImg("")
-    }
-
-  }
-
-
-
-
-  //when image change save it 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-
-      setImageUrls(URL.createObjectURL(event.target.files[0]))
-      setImgUpload(event.target.files[0])
-      setErrorImg(true);
-    }
-  }
-
-  //fitlter by category
-  const filterByCat = (cat) => {
-
-    filterByCatMainImg(cat, setImages, dataPostss)
-  }
+  };
 
 
 
 
 
 
-  ///ui
 
-  // <Gallery images={images} setUpdate={setUpdate} update={update} />
+
+
+
+
 
   return (
 
@@ -164,7 +149,7 @@ export default function AddImageComponents() {
           </div>
           <label htmlFor="upload-photo">
             <img
-              src={imageUrls}
+              src={avatar}
               alt="fzx"
               
               height="100px"
@@ -175,18 +160,17 @@ export default function AddImageComponents() {
           <input className='hideinputImg'
             type="file"
             name="photo"
-            onChange={onImageChange}
-
+            onChange={(e) => setImages(Object.values(e.target.files))}
+           
             id="upload-photo"
           />
-          {errorImg && imgUpload == null ?
+          {errorImg && images == null ?
             <label className='error animate__animated animate__shakeX'>add image Empty</label> : ""}
-          {error && upload == false ?
-            <label className='error animate__animated animate__shakeX'>upload image</label> : ""}
+          
 
-
-          <div onClick={uploadImg} className='btnimg'>1: Upload Image </div>
-
+            {images?.map((i) => <img src={URL.createObjectURL(i)}></img>)}
+ 
+       
         </div>
 
 
@@ -205,7 +189,7 @@ export default function AddImageComponents() {
            {error && categoryImg.length <= 0 ?
              <label className='error animate__animated animate__shakeX'>Choose Category</label> : ""}
 
-           <div onClick={onCreate} className='btnimg'>2: Add To List</div>
+           <div onClick={onUpload} className='btnimg'>2: Add To List</div>
 
          </div>
        </div>
@@ -222,11 +206,11 @@ export default function AddImageComponents() {
         
        <div className='list-categoryAdmin'><h6 className='text-black' onClick={() => filterByCat("ALL")}>ALL</h6>{category.map((i) => <h6 className='text-black' onClick={() => filterByCat(i.cat)} key={Math.random()} >{i.cat}</h6>)}
        </div>
-        <div className='count-items'> Items: { images.length}</div>
+        <div className='count-items'> Items: { PhotosFromFireBaseRedux.length}</div>
        <div className='List-items'>
        
          
-       <ListImg images={images} setUpdate={setUpdate} update={update}/>
+       <ListImg data={PhotosFromFireBaseRedux} images={images} setUpdate={setUpdate} update={update}/>
  
          </div>
        </div>

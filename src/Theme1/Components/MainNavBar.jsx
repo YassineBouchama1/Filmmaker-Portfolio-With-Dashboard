@@ -3,7 +3,8 @@ import '../style/navbar.css'
 import logo from '../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 export default function MainNavBar() {
 
 
@@ -65,13 +66,13 @@ export default function MainNavBar() {
         <div className='Logo'><a href='/'><img src={logo}></img></a></div>
 
         <div className='links'>
-          <div className='Logo-sidebar Logo-sidebar-active'><a href='/'><img src={logo}></img></a></div>
-          <div className='links-mobile'><a href="#Home">Home</a>
-            <a href="#Videos">Filmmaking</a>
-            <a href="#Photos">Photography</a>
-            <a href="#Services" >Services</a>
-            <a href="#About">About</a>
-            <a href="#Contact">Contact</a></div>
+          <div className='Logo-sidebar Logo-sidebar-active'><Link to='/'><img src={logo}></img></Link></div>
+          <div className='links-mobile'><a href="/">Home</a>
+            <Link  to="/Videos">Filmmaking</Link>
+            <Link to="/Photos">Photography</Link>
+            <Link  to="/Services" >Services</Link>
+            <Link to="/">About</Link>
+            <Link to="/Contact">Contact</Link></div>
           <div className='contact-mobile'>
             <a href="mailto:#" className="link-body">hello@noaman.info</a>
             <p> +212 6 26 85 94 49 </p>
