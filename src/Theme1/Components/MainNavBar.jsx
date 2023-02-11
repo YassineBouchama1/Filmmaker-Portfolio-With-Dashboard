@@ -70,7 +70,7 @@ export default function MainNavBar() {
           <div className='links-mobile'><a href="/">Home</a>
             <Link  to="/Videos">Filmmaking</Link>
             <Link to="/Photos">Photography</Link>
-            <Link  to="/Services" >Services</Link>
+        
             <Link to="/">About</Link>
             <Link to="/Contact">Contact</Link></div>
           <div className='contact-mobile'>

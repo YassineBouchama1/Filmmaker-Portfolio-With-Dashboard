@@ -17,7 +17,7 @@ export default function Welcom() {
 
   <div className="btn-welecom">
   <Link to='/Videos'>Filmmaking</Link>
-  <Link  to='/Services'>Photos</Link>
+  <Link  to='/Photos'>Photos</Link>
   </div>
 <div className='handwrite'> <p className='animate__animated animate__zoomIn'>Noaman El garrab</p></div>
  

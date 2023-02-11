@@ -67,9 +67,13 @@ font-weight: 700;
   color: rgb(90, 90, 90);
 transform: translateY(-10px);
 }
-.btnWelecom a:hover {
+.btnWelecom a{
 
-  color: rgb(90, 90, 90);
+}
+.btnWelecom a:hover {
+  /* color: #34e3c9; */
+
+
 
 }
 /* .btnWelecom .Photos:hover{
@@ -83,11 +87,28 @@ display: flex;
 gap: 50px;
 }
 
-.btn-welecom button{
-
-  min-width: 150px;
+.btn-welecom a{
+  color: #1d222c;
+  background-color: #fff;
+  border-color: #fff;
+  display: inline-flex;
+align-items: center;
+justify-content: center;
+text-transform: uppercase;
+letter-spacing: .025rem;
+box-shadow: unset;
+transform: translateY(0);
+padding: 10px 20px;
+border-radius: 10px;
+min-width: 150px;
+padding: .75rem 1.2rem;
+font-size: .7rem;
+border-radius: .3rem;
+transition: all .2s linear;
 }
-
+.btn-welecom a:hover{
+ transform: translateY(-10px);
+}
 @media (max-width:991px) {
   .seactin-welcom h1{
 
