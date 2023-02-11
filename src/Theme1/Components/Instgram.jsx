@@ -4,11 +4,7 @@ import img1 from '../images/ig/i1.jpg'
 import img2 from '../images/ig/i2.jpg'
 import img3 from '../images/ig/i3.jpg'
 import img4 from '../images/ig/i4.jpg'
-import Contact from '../../../../YassinePortfolio/src/Pages/Contact'
-// const img1  =React.lazy(()=>import ('../images/ig/i1.jpg'))
-// const img2  =React.lazy(()=>import ('../images/ig/i2.jpg'))
-// const img3  =React.lazy(()=>import ('../images/ig/i3.jpg'))
-// const img4  =React.lazy(()=>import ('../images/ig/i4.jpg'))
+
 export default function Instgram() {
 
 

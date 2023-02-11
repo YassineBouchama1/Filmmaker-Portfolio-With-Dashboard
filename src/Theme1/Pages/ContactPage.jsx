@@ -12,10 +12,11 @@ import Footer from '../Components/Footer'
 import Contact from '../Components/Contact'
 import MainNavBar from '../Components/MainNavBar'
 
-
 import LazyFooter from '../Components/Footer'
+import Lazyig from '../Components/Instgram'
 
-export default function Photo() {
+
+export default function ContactPage() {
 
 
 
@@ -26,14 +27,11 @@ export default function Photo() {
 
 
 
- <ImageSection/>
-
-
-
+<Contact/>
+<Lazyig/>
 <LazyFooter/>
 
     </div>
     </div>
-   
   )
 }

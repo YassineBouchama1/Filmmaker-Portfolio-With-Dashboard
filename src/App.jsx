@@ -11,7 +11,7 @@ import PageNotFound from './PageNotFound'
 
 import "animate.css/animate.min.css";
 import BackGroundSlider from './Theme1/Components/BackGroundSlider'
-import ScrollIncon from './Theme1/Components/ScrollIncon'
+
 
 import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter, Routes, Route ,Link} from "react-router-dom"
@@ -20,12 +20,14 @@ import './App.css'
 import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Photo from './Theme1/Pages/Photo';
-import Videos from './Theme1/Pages/Videos';
+
 import Login from './admin/Login'
 
-import ContactPage from './Theme1/Pages/Contact';
-import Home from './Theme1/Pages/Home';
+import ContactPage from './Theme1/Pages/ContactPage';
+
+import VideosPage from './Theme1/Pages/VideosPage';
+import PhotoPage from './Theme1/Pages/PhotoPage';
+import HomePage from './Theme1/Pages/HomePage';
 // const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
 // const LazyAddImageAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddImageAdmin'));
 // const LazyAddVideoAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddVideoAdmin'));
@@ -72,9 +74,9 @@ function App() {
 
 
 <Routes>
-<Route path='/' element={<Home/>} />
-<Route path='/Photos' element={<Photo/>} />
-<Route path='/Videos' element={<Videos/>} />
+<Route path='/' element={<HomePage/>} />
+<Route path='/Photos' element={<PhotoPage/>} />
+<Route path='/Videos' element={<VideosPage/>} />
 <Route path='/Contact' element={<ContactPage/>} />
 
 

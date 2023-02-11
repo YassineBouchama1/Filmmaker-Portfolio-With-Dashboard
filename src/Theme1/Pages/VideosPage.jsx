@@ -12,7 +12,7 @@ import LazyFooter from '../Components/Footer'
 
 // const LazyFooter   =React.lazy(()=>import ('../Components/Footer'))
 
-export default function Videos() {
+export default function VideosPage() {
 
 
 

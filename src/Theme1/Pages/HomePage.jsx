@@ -11,11 +11,11 @@ import Instgram from '../Components/Instgram'
 import Footer from '../Components/Footer'
 import Contact from '../Components/Contact'
 
-import Lazyig from '../Components/../Components/Instgram'
+import Lazyig from '../Components/Instgram'
 import LazyServices from '../Components/Services'
 import LazyFooter from '../Components/Footer'
 import MainNavBar from '../Components/MainNavBar'
-export default function Home() {
+export default function HomePage() {
 
 
 
