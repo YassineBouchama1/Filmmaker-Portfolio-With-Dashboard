@@ -18,15 +18,15 @@ import { BrowserRouter, Routes, Route ,Link} from "react-router-dom"
 
 import './App.css'
 import 'animate.css';
-import login from './admin/Login'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Photo from './Theme1/Pages/Photo';
 import Videos from './Theme1/Pages/Videos';
-
+import Login from './admin/Login'
 
 import ContactPage from './Theme1/Pages/Contact';
 import Home from './Theme1/Pages/Home';
-const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
+// const LazyLogin  =React.lazy(()=>import ('./Admin/Login'));
 // const LazyAddImageAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddImageAdmin'));
 // const LazyAddVideoAdmin  =React.lazy(()=>import ('./admin/PagesAdmin/AddVideoAdmin'));
 // const LazyDashboard  =React.lazy(()=>import ('./admin/PagesAdmin/Dashboard'));
@@ -78,16 +78,16 @@ function App() {
 <Route path='/Contact' element={<ContactPage/>} />
 
 
-<Route path='/login' element={isAuth ? <AddImageAdmin/> : <LazyLogin/>} />
+<Route path='/login' element={isAuth ? <AddImageAdmin/> : <Login/>} />
 
 
 
 
-<Route path='/admin' element={isAuth ? <AddImageAdmin/>: <LazyLogin/>} />
+<Route path='/admin' element={isAuth ? <AddImageAdmin/>: <Login/>} />
 
-<Route path='/image' element={isAuth ? <AddImageAdmin/>: <LazyLogin/>} />
-<Route path='/video' element={isAuth ? <AddVideoAdmin/>: <LazyLogin/>} />
-<Route path='/Dashboard' element={isAuth ? <Dashboard/>: <LazyLogin/>} />
+<Route path='/image' element={isAuth ? <AddImageAdmin/>: <Login/>} />
+<Route path='/video' element={isAuth ? <AddVideoAdmin/>: <Login/>} />
+<Route path='/Dashboard' element={isAuth ? <Dashboard/>: <Login/>} />
 
 <Route path="*" element={<PageNotFound/>} />
 
