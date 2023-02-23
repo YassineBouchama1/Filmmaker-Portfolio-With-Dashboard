@@ -14,7 +14,7 @@ export default function Services() {
   <div className='text-body'>
 
   <div><h3>My Services</h3>
-  <h4>  </h4>
+  <h4></h4>
   </div>
 
   <div className=' list-service'>
@@ -23,7 +23,7 @@ export default function Services() {
   <div className='services-item'>
   <i className="fa-solid fa-film"></i>
   <div className='text-services'>
-
+  <h4>Filmmaking</h4>
   
   </div>
   </div>
