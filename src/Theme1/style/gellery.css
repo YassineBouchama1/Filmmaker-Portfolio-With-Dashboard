@@ -37,8 +37,10 @@ margin-top: 40px;
     cursor: pointer;
     margin-bottom: 12px;
     z-index: 100;
+    animation:  fade-in 4000ms forwards;
+
     width: 100%;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     resize: fit;
 
     }
@@ -72,4 +74,21 @@ background-color: red;
             -moz-column-width:  100%;
             -webkit-column-width:   100%;
             } 
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-out {
+      0% {
+        width: 50% ;
+      }
+      100% {
+        width: 100% ;
+      }
     }
