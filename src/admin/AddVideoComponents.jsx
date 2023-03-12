@@ -22,7 +22,7 @@ export default function AddVideoComponents() {
 
    const [loading, setLoading] = useState(false);
    const [categoryVid, setCategoryVid] = useState("");
-
+   const [viddmin, setViddmin] = useState([]);
    const [vidUrl, setVidUrl] = useState("");
    const [isPress, setIsPress] = useState(false)
    const [images, setImages] = useState([])
@@ -46,10 +46,10 @@ export default function AddVideoComponents() {
 
    const VideoFromFireBaseRedux = useSelector(state => state.Video.VidsUrls)
  
-  //  useEffect(() => {
-  //   setVideos(dataVideos)
-  //    console.log(dataVideos)
-  //  }, [dataVideos])
+   useEffect(() => {
+    setViddmin(VideoFromFireBaseRedux)
+ 
+   }, [VideoFromFireBaseRedux])
  
 
 
@@ -72,7 +72,7 @@ export default function AddVideoComponents() {
       UrlVideo: vidUrl,
       date: serverTimestamp(),
     })
-
+    setCategoryVid(""),
     await Promise.all(
       setLoading(true),
       setIsPress(true),
@@ -107,6 +107,17 @@ export default function AddVideoComponents() {
 
 
 
+// filter
+const filterByCatMainVidADMIN = (cat) => {
+  if (cat === 'ALL') {
+    setViddmin(VideoFromFireBaseRedux)
+  }
+  else {
+    const newAr = VideoFromFireBaseRedux.filter((item) => item.Category === cat)
+    setViddmin(newAr)
+  }
+  console.log(cat)
+}
 
 
 
@@ -193,18 +204,18 @@ export default function AddVideoComponents() {
 </div>
 
       <div className='col2-items' >
-      <div className='list-categoryAdmin'><h6 className='text-black' onClick={() => filterByCat("ALL")}>ALL</h6>{category.map((i) => <h6 className='text-black' onClick={() => filterByCatVid(i.cat)} key={Math.random()} >{i.cat}</h6>)}
+      <div className='list-categoryAdmin'><h6 className='text-black' onClick={() => filterByCatMainVidADMIN("ALL")}>ALL</h6>{category.map((i) => <h6 className='text-black' onClick={() => filterByCatMainVidADMIN(i.cat)} key={Math.random()} >{i.cat}</h6>)}
       
       </div>
       
 
 
-      <div className='count-items'> Latest Videos: { VideoFromFireBaseRedux.length}</div>
+      <div className='count-items'> Latest Videos: { viddmin.length}</div>
 
 
        <div className='List-items'>
           
-<ListVid data={VideoFromFireBaseRedux} videos={videos} setUpdate={setUpdate} update={update}/>
+<ListVid data={viddmin} videos={videos} setUpdate={setUpdate} update={update}/>
 
 </div>
 

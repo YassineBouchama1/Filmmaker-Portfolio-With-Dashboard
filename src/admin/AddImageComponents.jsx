@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import "./PagesAdmin/styleAdmin/addImageAdmin.css"
 import { ToastContainer, toast } from 'react-toastify';
 import notify from '../hook/useNotifcation'
-import { filterByCatMainImg } from '../hook/useFiltercategory'
+import { filterByCatMainImgADMIN } from '../hook/useFiltercategory'
 import 'react-toastify/dist/ReactToastify.css';
 import { auth, db, storage } from "../firebase/firebase-config"
 import avatar from '../images/avatar.png'
@@ -18,7 +18,8 @@ import ListImg from '../Components/ListImg'
 
 export default function AddImageComponents() {
 
-  const PhotosFromFireBaseRedux = useSelector(state => state.DataR.movies)
+
+
   const category = [{ cat: "Portraits" }, { cat: "Product" }, { cat: "Automobile" }, { cat: "Street" }, { cat: "Events" }]
  
 
@@ -27,6 +28,7 @@ export default function AddImageComponents() {
 
 
   const [loading, setLoading] = useState(false);
+  const [imgAdmin, setimgAdmin] = useState([]);
   const [errorImg, setErrorImg] = useState(false);
   const [categoryImg, setCategoryImg] = useState("");
   
@@ -46,15 +48,31 @@ export default function AddImageComponents() {
   useEffect(() => {
     // getMovies()
     dispatchNovies(getAllMovies())
-
+  
   }, [update])
 
+  const PhotosFromFireBaseRedux = useSelector(state => state.DataR.movies)
+
+
+  useEffect(() => {
+    setimgAdmin(PhotosFromFireBaseRedux)
+
+  }, [PhotosFromFireBaseRedux])
 
 
 
 
-
-
+// filter
+  const filterByCatMainImgADMIN = (cat) => {
+    if (cat === 'ALL') {
+      setimgAdmin(PhotosFromFireBaseRedux)
+    }
+    else {
+      const newAr = PhotosFromFireBaseRedux.filter((item) => item.Category === cat)
+      setimgAdmin(newAr)
+    }
+    console.log(cat)
+  }
 
 
 
@@ -204,13 +222,13 @@ export default function AddImageComponents() {
 
 
         
-       <div className='list-categoryAdmin'><h6 className='text-black' onClick={() => filterByCat("ALL")}>ALL</h6>{category.map((i) => <h6 className='text-black' onClick={() => filterByCat(i.cat)} key={Math.random()} >{i.cat}</h6>)}
+       <div className='list-categoryAdmin'><h6 className='text-black' onClick={() => filterByCatMainImgADMIN("ALL")}>ALL</h6>{category.map((i) => <h6 className='text-black' onClick={() => filterByCatMainImgADMIN(i.cat)} key={Math.random()} >{i.cat}</h6>)}
        </div>
-        <div className='count-items'> Items: { PhotosFromFireBaseRedux.length}</div>
+        <div className='count-items'> Items: { imgAdmin.length}</div>
        <div className='List-items'>
        
          
-       <ListImg data={PhotosFromFireBaseRedux} images={images} setUpdate={setUpdate} update={update}/>
+       <ListImg data={imgAdmin} setimgadmin={setimgAdmin} images={images} setUpdate={setUpdate} update={update}/>
  
          </div>
        </div>

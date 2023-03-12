@@ -35,6 +35,7 @@ export default function VideosSection() {
 
   }, [update])
   const dataVideos = useSelector(state => state.Video.VidsUrls)
+  
   const VideoFromFireBaseRedux = useSelector(state => state.Video.VidsUrls)
 
   useEffect(() => {
@@ -43,20 +44,19 @@ export default function VideosSection() {
     setVideos(newAr)
   }, [dataVideos])
 
-    //fitlter by category
-    const filterByCatVid = (cat) => {
 
-      filterByCatMainVid(cat,setVideos,dataVideos)
-    }
+
+
     const [toggle, setToggle] = useState(0)
 
-  const toggleAll = (cat,index) => {
 
-    filterByCatVid(cat)
-    toggleModal(index)
-
- 
+    const filterByCatMainVid = (cat,index) => {
+      toggleModal(index)
+      const newAr = dataVideos.filter((item) => item.Category === cat)
+      setVideos(newAr)
+  
     }
+  
   const toggleModal = (index) => {
 
 
@@ -71,11 +71,11 @@ export default function VideosSection() {
     <div className='card-body'>
    <h2>Filmmaking</h2>
   
-   <div className='category'>{category.map((i,index) => <h3 className={toggle === index? 'active': null} id={i.cat} onClick={() => toggleAll(i.cat,index)} key={Math.random()} >{i.cat}</h3>)}</div>
+   <div className='category'>{category.map((i,index) => <h3 className={toggle === index? 'active': null} id={i.cat} onClick={() => filterByCatMainVid(i.cat,index)} key={Math.random()} >{i.cat}</h3>)}</div>
 
 
         
- {dataVideos?.length >=1?(  <LightGallery
+ {videos?.length >=1?(  <LightGallery
 
   elementClassNames="gallery22"
   plugins={[ lgVideo ,lgThumbnail]}

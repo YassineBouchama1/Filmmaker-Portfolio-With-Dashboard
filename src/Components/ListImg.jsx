@@ -4,13 +4,14 @@ import { collection, addDoc ,deleteDoc,doc,getDocs} from "firebase/firestore";
 import { auth, db, storage } from "../firebase/firebase-config"
 import img from '../images/about.jpg'
 import notify from '../hook/useNotifcation'
-export default function ListImg({ images, update, setUpdate,data }) {
+export default function ListImg({ images, update, setUpdate,data,setimgadmin }) {
 
     //Delet Video
     const deletImg = async (id) => {
         const pathimg = doc(db, "Images", id)
         await deleteDoc(pathimg)
         setUpdate(!update)
+       
         notify()
     }
   

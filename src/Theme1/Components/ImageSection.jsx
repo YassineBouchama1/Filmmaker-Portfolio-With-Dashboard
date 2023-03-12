@@ -50,23 +50,28 @@ export default function ImageSection() {
 
   }, [PhotosFromFireBaseRedux])
 
-console.log(PhotosFromFireBaseRedux)
-  const filterByCat = (cat) => {
-console.log(images)
-    filterByCatMainImg(cat, setImages, PhotosFromFireBaseRedux)
-
-  }
 
 
   const [toggle, setToggle] = useState(0)
 
-  const toggleAll = (cat,index) => {
 
-    filterByCat(cat)
+  const filterByCatMainImg = (cat,index) => {
     toggleModal(index)
+    const newAr = PhotosFromFireBaseRedux.filter((item) => item.Category === cat)
+    setImages(newAr)
+    console.log(cat)
+  }
+
+
+
+
+  // const toggleAll = (cat,index) => {
+
+  //   filterByCat(cat)
+  //   toggleModal(index)
 
  
-    }
+  //   }
     
   const toggleModal = (index) => {
 
@@ -82,12 +87,12 @@ console.log(images)
           <div className='card-body'>
             <h2>Photography </h2>
      
-          <div className='category'>{category.map((i,index) => <h3 className={toggle === index? 'active': ''} id={i.cat} onClick={() => toggleAll(i.cat,index)} key={Math.random()} >{i.cat}</h3>)}</div>
+          <div className='category'>{category.map((i,index) => <h3 className={toggle === index? 'active': ''} id={i.cat} onClick={() => filterByCatMainImg(i.cat,index)} key={Math.random()} >{i.cat}</h3>)}</div>
 
    
            
          
-            {PhotosFromFireBaseRedux.length >=1?(  <LightGallery
+            {images.length >=1?(  <LightGallery
            
               elementClassNames="gallery22"
               plugins={[lgZoom, lgThumbnail]}
