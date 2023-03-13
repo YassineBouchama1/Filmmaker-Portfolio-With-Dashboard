@@ -71,7 +71,7 @@ export default function MainNavBar() {
             <Link  to="/Videos">Filmmaking</Link>
             <Link to="/Photos">Photography</Link>
         
-            <Link to="/">About</Link>
+       
             <Link to="/Contact">Contact</Link></div>
           <div className='contact-mobile'>
             <a href="mailto:#" className="link-body">hello@noaman.info</a>
