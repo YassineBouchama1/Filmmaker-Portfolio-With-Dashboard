@@ -104,7 +104,7 @@ export default function ImageSection() {
                 
                   <a
                     className="gallery-item"
-                    data-src={i.image[0]}
+                    data-src={i?.image[0]}
                     key={i.id}
 
                   >
