@@ -99,13 +99,11 @@ export default function BackGroundSlider() {
 
 // <div className='bg-image img-1' style={backgroundStyle}>
 
-// </div>
-// <img className='bg-main' preload="yes" loading='lazy' src={bg[currentState]} ></img>
   return (
-<div className='bg-main'>
 
-<img  preload="yes"   ></img>
-</div>
+<div>
+ <img className='bg-main' preload="yes" loading='lazy' src={bg1} ></img>
+ </div>
 
 
   )
