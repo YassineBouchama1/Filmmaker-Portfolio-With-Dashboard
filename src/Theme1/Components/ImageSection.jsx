@@ -114,7 +114,7 @@ export default function ImageSection() {
                       className="video2"
 
                       alt=""
-                      src={i.image[0]}
+                      src={i?.image[0]}
                     />
              
 

@@ -8,6 +8,7 @@ object-fit: cover;
  z-index: -1;
     background-size: cover ;
 position: fixed;
+
 /* -webkit-transition: opacity  1s ease-in-out;
 -moz-transition: opacity  1s ease-in-out;
 -o-transition: opacity  15s ease-in-out;
@@ -19,13 +20,13 @@ transition:  all 1s;;
 
     background-repeat: no-repeat;
 
-    background-repeat: no-repeat;
+
 /* transition: all .7s linear; */
 
 
 
     background-color: #010101;
-    /* background-image: url("../images/bg.jpg"); */
+    background-image: url("../images/bg/1.jpg");
 
     /* height: 100vh;
 width: 100%; 

@@ -28,56 +28,56 @@ export default function BackGroundSlider() {
 
 
 
-useEffect(()=>{
+// useEffect(()=>{
 
-  setWidth(window.innerWidth)
+//   setWidth(window.innerWidth)
 
 
       
 
 
-},[window.innerWidth])
+// },[window.innerWidth])
 
 
     
-useEffect(() => {
+// useEffect(() => {
 
-  if(width <= 800){
+//   if(width <= 800){
   
-    const imgMapMobile =[
-      mbg1,
+//     const imgMapMobile =[
+//       mbg1,
 
     
-    ];
+//     ];
  
-    setBg(imgMapMobile)
-      }
-      if(width > 800){
+//     setBg(imgMapMobile)
+//       }
+//       if(width > 800){
 
-      const imgMap =[
-        bg1,
+//       const imgMap =[
+//         bg1,
   
       
-      ];
+//       ];
 
 
-      setBg(imgMap)
-    }
+//       setBg(imgMap)
+//     }
    
-  const timer = setTimeout(() => {
+//   const timer = setTimeout(() => {
 
-  if(currentState===bg.length -1){
-    setCurrentState(0)
-  }
-  else{
-    setCurrentState(currentState + 1)
-  }
+//   if(currentState===bg.length -1){
+//     setCurrentState(0)
+//   }
+//   else{
+//     setCurrentState(currentState + 1)
+//   }
    
 
-  }, 5300);
+//   }, 5300);
 
-  return () => clearTimeout(timer);
-}, [currentState]);
+//   return () => clearTimeout(timer);
+// }, [currentState]);
 
 
 
@@ -102,8 +102,10 @@ useEffect(() => {
 // </div>
 // <img className='bg-main' preload="yes" loading='lazy' src={bg[currentState]} ></img>
   return (
+<div className='bg-main'>
 
- <img className='bg-main' preload="yes"  src={bg[0]} ></img>
+<img  preload="yes"   ></img>
+</div>
 
 
   )
