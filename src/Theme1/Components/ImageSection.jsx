@@ -45,7 +45,7 @@ export default function ImageSection() {
   
   useEffect(() => {
     // const newAr = 
-    setImages(PhotosFromFireBaseRedux.filter((item) => item.Category === "Portraits"))
+    setImages(PhotosFromFireBaseRedux.filter((item) => item?.Category === "Portraits"))
    
 
   }, [PhotosFromFireBaseRedux])
@@ -92,7 +92,7 @@ export default function ImageSection() {
    
            
          
-            {images.length >=1?(  <LightGallery
+            {images.length >=0?(  <LightGallery
            
               elementClassNames="gallery22"
               plugins={[lgZoom, lgThumbnail]}
@@ -104,7 +104,7 @@ export default function ImageSection() {
                 
                   <a
                     className="gallery-item"
-                    data-src={i?.image[0]}
+                    data-src={i?.image ? i?.image[0] :null}
                     key={i.id}
 
                   >
@@ -114,7 +114,7 @@ export default function ImageSection() {
                       className="video2"
 
                       alt=""
-                      src={i?.image[0]}
+                      src={i?.image ? i?.image[0] :null}
                     />
              
 

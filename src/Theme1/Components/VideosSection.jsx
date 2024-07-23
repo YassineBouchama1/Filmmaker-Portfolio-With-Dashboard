@@ -75,7 +75,7 @@ export default function VideosSection() {
 
 
         
- {videos?.length >=1?(  <LightGallery
+ {videos?.length >=0?(  <LightGallery
 
   elementClassNames="gallery22"
   plugins={[ lgVideo ,lgThumbnail]}
